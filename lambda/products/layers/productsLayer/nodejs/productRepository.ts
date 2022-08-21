@@ -99,13 +99,7 @@ export class ProductRepository {
             }
         }).promise();
 
-        //Esse if soh eh possivel se for informado "ReturnValues: "UPDATED_NEW" " ao commando da update ao dynamodb
-        if (data.Attributes) {
-            return data.Attributes as Product;
-        } else {
-            throw new Error(`update error - Product not found: ${productId}`);
-        }
-
-        return product;
+        data.Attributes!.id = productId;
+        return data.Attributes as Product;
     }
 }
