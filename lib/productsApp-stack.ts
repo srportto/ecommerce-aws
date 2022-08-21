@@ -76,7 +76,8 @@ export class ProductsAppStack extends cdk.Stack {
             },
             environment: {
                 PRODUCTS_DDB: this.productsDdb.tableName
-            }
+            },
+            layers: [productsLayer] // usando a layer importada
         })
 
         this.productsDdb.grantWriteData(this.productsAdminHandler)
