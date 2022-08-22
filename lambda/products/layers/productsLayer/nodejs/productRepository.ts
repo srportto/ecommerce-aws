@@ -92,10 +92,10 @@ export class ProductRepository {
             ReturnValues: "UPDATED_NEW",    // Ao informar esse parametro com essa informacao , se o update ocorrer com sucesso os dados da linha alterada serao retornados em "attributes
             UpdateExpression: "set productName = :a, code = :b, price = :c , model = :d",
             ExpressionAttributeValues: {
-                "a": product.productName,
-                "b": product.code,
-                "c": product.price,
-                "d": product.model
+                ":a": product.productName,
+                ":b": product.code,
+                ":c": product.price,
+                ":d": product.model
             }
         }).promise();
 

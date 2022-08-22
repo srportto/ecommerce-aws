@@ -37,7 +37,7 @@ export async function handler(event: APIGatewayProxyEvent, context: Context): Pr
                     statusCode: 200,
                     body: JSON.stringify(productUpdated)
                 }
-            } catch (CoditionalCheckFailedException) {
+            } catch (ConditionalCheckFailedException) {
                 return {
                     statusCode: 404,
                     body: `Product not found: ${productId}`
