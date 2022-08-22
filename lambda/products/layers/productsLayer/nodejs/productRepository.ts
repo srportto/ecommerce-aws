@@ -8,6 +8,7 @@ export interface Product {
     code: string;
     price: number;
     model: string;
+    productUrl: string;
 }
 
 
@@ -90,12 +91,13 @@ export class ProductRepository {
             },
             ConditionExpression: 'attribute_exists(id)', // essa linha adiciona a condicao para so executar o comando de update se o id passado existir na base
             ReturnValues: "UPDATED_NEW",    // Ao informar esse parametro com essa informacao , se o update ocorrer com sucesso os dados da linha alterada serao retornados em "attributes
-            UpdateExpression: "set productName = :a, code = :b, price = :c , model = :d",
+            UpdateExpression: "set productName = :a, code = :b, price = :c , model = :d, productUrl = :e",
             ExpressionAttributeValues: {
                 ":a": product.productName,
                 ":b": product.code,
                 ":c": product.price,
-                ":d": product.model
+                ":d": product.model,
+                ":e": product.productUrl
             }
         }).promise();
 
