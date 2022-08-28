@@ -57,8 +57,9 @@ export class ProductsAppStack extends cdk.Stack {
             environment: {
                 PRODUCTS_DDB: this.productsDdb.tableName
             },
-            layers: [productsLayer] // usando a layer importada
-
+            layers: [productsLayer], // usando a layer importada
+            tracing: lambda.Tracing.ACTIVE, //ativando xray
+            insightsVersion: lambda.LambdaInsightsVersion.VERSION_1_0_119_0 //usando lambdaInsights
         })
 
         this.productsDdb.grantReadData(this.productsFetchHandler)
@@ -77,7 +78,9 @@ export class ProductsAppStack extends cdk.Stack {
             environment: {
                 PRODUCTS_DDB: this.productsDdb.tableName
             },
-            layers: [productsLayer] // usando a layer importada
+            layers: [productsLayer],    // usando a layer importada
+            tracing: lambda.Tracing.ACTIVE, //ativando xray
+            insightsVersion: lambda.LambdaInsightsVersion.VERSION_1_0_119_0 //usando lambdaInsights
         })
 
         this.productsDdb.grantWriteData(this.productsAdminHandler)
