@@ -10,7 +10,7 @@ import {ProductsAppLayersStack} from "../lib/productsAppLayers-stack";
 const app = new cdk.App();
 
 const env: cdk.Environment = {
-    account: "370694956440",
+    account: "540305457156",
     region: "us-east-1"
 }
 const tags = {
